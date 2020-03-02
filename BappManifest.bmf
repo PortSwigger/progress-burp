@@ -1,0 +1,12 @@
+Uuid: 17544cadcec64dcf8ed68df8518592e4
+ExtensionType: 2
+Name: Progress Tracker
+RepoName: progress-tracker
+ScreenVersion: 1.1
+SerialVersion: 1
+MinPlatformVersion: 0
+ProOnly: False
+Author: dariusztytko
+ShortDescription: Burp Suite extension to track vulnerability assessment progress.
+EntryPoint: progress.py
+BuildCommand: 
