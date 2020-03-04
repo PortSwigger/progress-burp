@@ -1,18 +1,18 @@
 <p>Features</p>
 <ul>
-	<li>Capture items (unique requests) from the Burp Suite tools (Proxy, Repeater, Target). Request unique key is defined as follows: target (host, port, protocol), path and method.</li>
+	<li>Capturing items (unique requests) from the Burp Suite tools (Proxy, Repeater, Target). Request unique key is defined as follows: target (host, port, protocol), path and method.</li>
 	<li>Items have following editable properties:
 		<ul>
-		<li>comment</li>
-		<li>status (Blocked, Done, Ignored, In progress, New, Postponed)</li>
-		<li>tags</li>
+			<li>comment</li>
+			<li>status (Blocked, Done, Ignored, In progress, New, Postponed)</li>
+			<li>tags</li>
 		</ul>
 	</li>
 
 	<li>Items can be filtered by:
 		<ul>
-		<li>status</li>
-		<li>tags (there are two filtering modes: AND - item has to have all filtering tags OR - item has to have at least one of the filtering tags)</li>
+			<li>status</li>
+			<li>tags (there are two filtering modes: AND - item has to have all filtering tags OR - item has to have at least one of the filtering tags)</li>
 		</ul>
 	</li>
 
@@ -20,13 +20,21 @@
 	<li>Selected items can be sent to the Burp Suite tools: Intruder, Repeater or Scanner</li>
 	<li>Selected item is displayed in the full functional Burp Suite HTTP message editor</li>
 	<li>Path patterns - unique key of the request is defined by target, path and method. However it can be usefull to define path pattern (regexp) to consider different requests as the same item (e.g. /article/\d+?/comments path pattern groups following requests: /article/1/comments, /article/2/comments, /article/100/comments, etc.)</li>
-	<li>Optionally, items and path patterns can be persisted to keep the state between Burp Suite runnings (please see Requirements)</li>
+	<li>Optionally, items and path patterns can be persisted to keep the state between Burp Suite launches</li>
+
+</ul>
+
+<p>Usage<p>
+<ul>
+	<li>Create a new project or use existing one</li>
+	<li>If you want to keep state between Burp Suite launches, choose a file where to store data (Progress -> Options -> Database -> Save as...)</li>
+	<li>Now items are automatically saved/updated in the SQLite database, and state will be automatically restored after Burp Suite reopening</li>
 
 </ul>
 
 <p>Options</p>
 <ul> 
-	<li>Database - selects file to persist items and path patterns (please see Requirements)</li>
+	<li>Database - selects file to persist items and path patterns</li>
 	<li>Scope tools - enables items capturing for selected Burp Suite tools (Proxy, Repeater, Target)</li>
 	<li>Excluded extensions - requests with these path extensions won't be processed</li>
 	<li>Excluded status codes - responses (and related requests) with these status codes won't be processed</li>
@@ -36,14 +44,5 @@
 
 </ul>
 
-<p>Requirements</p>
-<p>To persist items and path patterns SQLite JDBC driver is required.</p>
-<ol>
-	<li>Download driver from <a href="https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc">here</a></li>
-	<li>Put downloaded driver (jar file) in the folder on the disk (e.g. /home/user/burpsuite-jars)</li>
-	<li>Set Burp Suite option (Extender -> Options -> Java Environment) to the path of folder with the driver</li>
-	<li>Reload the extension</li>
-
-</ol>
 
 
