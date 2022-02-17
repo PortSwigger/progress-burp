@@ -634,7 +634,9 @@ class CapturingPanel(JPanel, ItemListener):
         self._buttons = []
 
     def display(self, values):
-        self.add(JLabel('<html><b>Capturing:</b></html'))
+        capturing_label = JLabel('<html><b>Capturing:</b></html')
+        capturing_label.putClientProperty("html.disable", None)
+        self.add(capturing_label)
         button_group = ButtonGroup()
         for option in self._OPTIONS:
             button = JRadioButton(option)
@@ -1537,7 +1539,9 @@ class OptionsPanel(JPanel):
 
     def _add_label(self, label):
         panel = JPanel()
-        panel.add(JLabel('<html><h2>%s</h2></html>' % label))
+        h2_label = JLabel('<html><h2>%s</h2></html>' % label)
+        h2_label.putClientProperty("html.disable", None)
+        panel.add(h2_label)
         self._add_panel(panel)
 
     def _add_panel(self, panel):
@@ -2157,7 +2161,9 @@ class StatusPanel(JPanel, ItemListener):
         ))
 
     def display(self, values):
-        self.add(JLabel('<html><b>Statuses:</b></html>'))
+        statuses_label = JLabel('<html><b>Statuses:</b></html>')
+        statuses_label.putClientProperty("html.disable", None)
+        self.add(statuses_label)
         for status in Application.ITEM_STATUSES:
             check_box = JCheckBox(status)
             check_box.setSelected(status in values['statuses'])
@@ -2213,7 +2219,9 @@ class TagPanel(JPanel, DocumentListener):
         self._update()
 
     def display(self, values):
-        self.add(JLabel('<html><b>Tags:</b></html>'))
+        tags_label = JLabel('<html><b>Tags:</b></html>')
+        tags_label.putClientProperty("html.disable", None)
+        self.add(tags_label)
         self._text_field = JTextField()
         self._text_field.setColumns(20)
         self._text_field.setEditable(True)
